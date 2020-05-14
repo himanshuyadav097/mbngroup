@@ -1,44 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-/* import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
- */  
 
+import Menu from './menu';
+import Aboutus from './components/aboutus';
+import Contact from './components/contactus';
+import Footer from './components/footer';
+
+import {BrowserRouter,Route,Switch} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import Aboutus from './components/aboutus';
 
 function App() {
 
-  return (
+return (
+    <BrowserRouter>
+<div>
+  <Menu />
+  <Route path="/" exact component={Home} />
+  <Route path="/aboutus" component={Aboutus} />
+  <Route path="/contactus" component={Contact} />
 
-<header>
-  <ul>
-  <li><a href="#home">Home</a></li>
-  <li><a href="#news">Admissions</a></li>
-  <li><a href="#news">Learning</a></li>
-  <li><a href="#aboutus">About Us</a></li>
-  <li><a href="#news">Gallery</a></li>
-  <li><a href="#news">Contact Us</a></li>
-  {/* <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-    </div>
-  </li> */}
-</ul>
-
-{/* <h3>Dropdown Menu inside a Navigation Bar</h3>
-<p>Hover over the "Dropdown" link to see the dropdown menu.</p> */}
-</header>
-
+</div>
+<Footer />
+</BrowserRouter>
 
   );
-
-
-  
 }
 
+ const Home =()=>{
+     return(
+         <div>
+
+<hgroup>
+  <h1>HOME</h1>
+  <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+
+</hgroup>
+         </div>
+     )
+ }
 export default App;
